@@ -3,7 +3,7 @@
    Edit these to customize your theme colors
    ======================================== */
 
-:root {
+:root[data-theme="light"]{
   /* Light Mode Colors (Soft Pastels) */
   --bg-primary: #f5f0e8;
   --bg-secondary: #ede8de;
