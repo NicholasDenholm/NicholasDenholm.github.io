@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+header nav a {
+  color: #8b949e;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #f0f6fc;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+}
+
+.hero .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  border: 3px solid #30363d;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: #8b949e;
+  margin-bottom: 1.5rem;
+}
+
+.hero .badges {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 2rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.85rem;
+  color: #58a6ff;
+}
+
+.badge.green {
+  color: #3fb950;
+  border-color: #238636;
+}
+
+.badge.purple {
+  color: #bc8cff;
+  border-color: #6e40c9;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+  margin: 0.3rem;
+}
+
+.btn-primary {
+  background-color: #238636;
+  border: 1px solid #2ea043;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #2ea043;
+}
+
+.btn-secondary {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.btn-secondary:hover {
+  background-color: #30363d;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #30363d;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: #58a6ff;
+}
+
+.card h3 {
+  color: #58a6ff;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.card .card-tags {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.skill-chip {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  color: #c9d1d9;
+}
+
+.sdp-section {
+  background: linear-gradient(135deg, #0d2137, #1a0d2e);
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.sdp-section h2 {
+  color: #f0f6fc;
+  margin-bottom: 0.75rem;
+}
+
+.sdp-section p {
+  color: #8b949e;
+  margin-bottom: 1.25rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sdp-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.sdp-benefit {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sdp-benefit .icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.sdp-benefit h4 {
+  color: #f0f6fc;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.sdp-benefit p {
+  color: #8b949e;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.contact-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-section p {
+  color: #8b949e;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #161b22;
+  border-top: 1px solid #30363d;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  header nav a {
+    margin-left: 0.75rem;
+  }
+}
