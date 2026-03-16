@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Nicholas Denholm – Computer Science student and aspiring developer." />
     <title>Nicholas Denholm | CS Student</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="theme.js" defer></script>
   </head>
   <body>
 
@@ -16,6 +17,9 @@
         <a href="#skills">Skills</a>
         <a href="#student-pack">Student Pack</a>
         <a href="#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
       </nav>
     </header>
 
@@ -42,7 +46,7 @@
       <!-- About -->
       <section id="about" style="margin-bottom: 3rem;">
         <h2 class="section-title">About Me</h2>
-        <p style="color:#8b949e; max-width:700px;">
+        <p style="max-width:700px;">
           I'm a computer science student passionate about software development and learning
           new technologies. I built this site to practice web development and explore the
           tools available through the GitHub Student Developer Pack. I'm always looking to
