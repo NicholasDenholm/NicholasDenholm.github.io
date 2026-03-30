@@ -1,0 +1,17 @@
+/*
+@import url("theme.css");
+*/
+form {
+    margin: 20px auto;
+    width: 70%;
+}
+#textariffic {
+    width: 600px;
+    height: 200px;
+    /*font-size: 12px;*/
+    /* font-family is inherited automatically */
+    /* color is also inherited unless overridden */
+    line-height: 15px;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
