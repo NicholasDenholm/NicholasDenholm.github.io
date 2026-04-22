@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="auto">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nicholas Denholm – Computer Science student and aspiring developer." />
-    <title>Nicholas Denholm | CS Student</title>
+    <meta name="description" content="Nicholas Denholm – Computer Science student interested in AI, neural networks, neuroscience, and computational biology." />
+    <title>Nicholas Denholm | CS, AI, and Neuroscience</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/textpeed.css" />
     <script src="../js/theme.js" defer></script>
@@ -19,23 +19,80 @@
       <nav>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <!--<a href="#student-pack">Student Pack</a>-->
         <a href="#contact">Contact</a>
+        <a href="three-lab.html">Three.js Lab</a>
+        <a href="soccer-ball.html">Soccer Ball</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span id="theme-icon">🌙</span>
+          <span id="theme-icon">Dark</span>
+        </button>
+        <button id="theme-editor-toggle" class="theme-editor-toggle" type="button" aria-label="Open color settings">
+          Colors
+        </button>
+        <button id="rain-editor-toggle" class="rain-editor-toggle" type="button" aria-label="Open rain settings">
+          Rain
         </button>
       </nav>
     </header>
 
+    <aside id="theme-editor" class="theme-editor" hidden>
+      <div class="theme-editor-header">
+        <h2>Color Settings</h2>
+      </div>
+      <p class="theme-editor-help">Choose a mode and adjust colors. Changes are saved automatically.</p>
+      <div class="theme-editor-row">
+        <label for="theme-editor-mode">Editing</label>
+        <select id="theme-editor-mode">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div id="theme-editor-controls" class="theme-editor-controls"></div>
+      <div class="theme-editor-actions">
+        <button id="theme-reset-mode" class="btn btn-secondary" type="button">Reset Mode</button>
+        <button id="theme-reset-all" class="btn btn-secondary" type="button">Reset All</button>
+      </div>
+    </aside>
+
+    <aside id="rain-editor" class="rain-editor" hidden>
+      <div class="rain-editor-header">
+        <h2>Rain Settings</h2>
+      </div>
+      <p class="rain-editor-help">Tune speed, wind direction, deflection strength, and rain color.</p>
+      <div class="rain-editor-controls">
+        <div class="rain-editor-control">
+          <label for="rain-speed">Speed</label>
+          <input id="rain-speed" type="range" min="-1" max="1" step="0.05" />
+          <span id="rain-speed-value">1.0x</span>
+        </div>
+        <div class="rain-editor-control">
+          <label for="rain-direction">Direction</label>
+          <input id="rain-direction" type="range" min="-0.5" max="0.5" step="0.01" />
+          <span id="rain-direction-value">0.00</span>
+        </div>
+        <div class="rain-editor-control">
+          <label for="rain-deflection">Deflection</label>
+          <input id="rain-deflection" type="range" min="0" max="3" step="0.01" />
+          <span id="rain-deflection-value">0.42</span>
+        </div>
+        <div class="rain-editor-control">
+          <label for="rain-color">Color</label>
+          <input id="rain-color" type="color" />
+        </div>
+      </div>
+      <div class="rain-editor-actions">
+        <button id="rain-reset" class="btn btn-secondary" type="button">Reset Rain</button>
+      </div>
+    </aside>
+
     <!-- Hero -->
     <section class="hero">
-      <div class="avatar">👨‍💻</div>
+      <div class="avatar">ND</div>
       <h1>Hi, I'm Nicholas Denholm</h1>
-      <p class="subtitle">Computer Science Student &amp; Aspiring Developer</p>
+      <p class="subtitle">Computer Science student exploring AI, neural networks, neuroscience, and computational biology</p>
       <div class="badges">
-        <span class="badge green">🎓 CS Student</span>
-        <span class="badge">GitHub Pages</span>
-        <span class="badge purple">Student Developer Pack</span>
+        <span class="badge green">Computer Science</span>
+        <span class="badge blue">Neuroscience</span>
+        <span class="badge purple">Machine Learning</span>
       </div>
       <div>
         <a class="btn btn-primary" href="https://github.com/NicholasDenholm" target="_blank" rel="noopener noreferrer">
@@ -50,11 +107,11 @@
       <!-- About -->
       <section id="about" style="margin-bottom: 3rem;">
         <h2 class="section-title">About Me</h2>
-        <p style="max-width:700px;">
-          I'm a computer science student passionate about software development and learning
-          new technologies. I built this site to practice web development and explore the
-          tools available through the GitHub Student Developer Pack. I'm always looking to
-          grow my skills and work on interesting projects.
+        <p style="max-width:700px; margin: 0 auto; text-align: center;">
+          I'm a computer science student who enjoys building software and learning how
+          intelligent systems work. I'm especially interested in AI, neural networks, and
+          neuroscience, and I like exploring where biology and computation overlap. This
+          site is my space to share projects and track what I'm learning.
         </p>
       </section>
 
@@ -63,17 +120,17 @@
         <h2 class="section-title">Projects</h2>
         <div class="cards">
           <div class="card">
-            <h3>Personal Portfolio Site</h3>
-            <p>This GitHub Pages site — built with plain HTML &amp; CSS to learn the basics of web development and deployment.</p>
+            <h3>Portfolio and Experiments</h3>
+            <p>A personal site where I test web ideas, interactive effects, and project writeups while improving my frontend workflow.</p>
             <div class="card-tags">
               <span class="tag">HTML</span>
               <span class="tag">CSS</span>
-              <span class="tag">GitHub Pages</span>
+              <span class="tag">JavaScript</span>
             </div>
           </div>
           <div class="card">
-            <h3>Coursework Projects</h3>
-            <p>Various assignments and labs from my computer science program covering algorithms, data structures, and more.</p>
+            <h3>CS Coursework</h3>
+            <p>Course projects focused on data structures, algorithms, and core programming fundamentals across multiple languages.</p>
             <div class="card-tags">
               <span class="tag">Python</span>
               <span class="tag">Java</span>
@@ -81,10 +138,12 @@
             </div>
           </div>
           <div class="card">
-            <h3>More Coming Soon</h3>
-            <p>Working on new personal projects as I continue through my CS degree. Check back for updates!</p>
+            <h3>AI and Neuro-Inspired Work</h3>
+            <p>Current focus: building small projects around machine learning and neural-network concepts inspired by neuroscience.</p>
             <div class="card-tags">
-              <span class="tag">In Progress</span>
+              <span class="tag">AI</span>
+              <span class="tag">Neural Networks</span>
+              <span class="tag">Neuroscience</span>
             </div>
           </div>
         </div>
@@ -102,67 +161,28 @@
           <span class="skill-chip">Data Structures</span>
           <span class="skill-chip">Algorithms</span>
           <span class="skill-chip">Linux / CLI</span>
+          <span class="skill-chip">Machine Learning</span>
+          <span class="skill-chip">Neural Networks</span>
+          <span class="skill-chip">Computational Biology</span>
         </div>
       </section>
       
-      <!--Typing box-->
-      <!--<input type="text">-->
-       
-      <form id="tipper">
-        <textarea id="textariffic"></textarea>
-        <p> <span class="label">CPM</span> 
-      <span id="CPM">0</span>
-        </p>
-        <p><span class="label">WPM</span>
-      <span id="WPM">0</span>
-        </p>        
-      </form>
-
-
-      <!-- GitHub Student Developer Pack
-      <section id="student-pack">
-        <div class="sdp-section">
-          <h2>🎒 GitHub Student Developer Pack</h2>
-          <p>
-            As a CS student, I'm taking advantage of the GitHub Student Developer Pack —
-            a free collection of developer tools and resources for students.
-          </p>
-          <div class="sdp-benefits">
-            <div class="sdp-benefit">
-              <div class="icon">🏗️</div>
-              <h4>GitHub Pro</h4>
-              <p>Unlimited private repositories and advanced collaboration features — free while I'm a student.</p>
-            </div>
-            <div class="sdp-benefit">
-              <div class="icon">🌐</div>
-              <h4>GitHub Pages</h4>
-              <p>Host this very portfolio for free directly from a GitHub repository.</p>
-            </div>
-            <div class="sdp-benefit">
-              <div class="icon">☁️</div>
-              <h4>Cloud Credits</h4>
-              <p>Access to cloud platform credits to experiment with real-world infrastructure and deployments.</p>
-            </div>
-            <div class="sdp-benefit">
-              <div class="icon">🛠️</div>
-              <h4>Dev Tools</h4>
-              <p>Free access to IDEs, domain names, CI/CD tools, and more to build professional-grade projects.</p>
-            </div>
+      <section id="typing-practice" style="margin-bottom: 3rem;">
+        <h2 class="section-title">Typing Practice</h2>
+        <form id="tipper">
+          <label for="textariffic" class="label">Type here to measure your current speed</label>
+          <textarea id="textariffic" placeholder="Start typing to see CPM and WPM update..."></textarea>
+          <div class="typing-stats">
+            <p><span class="label">CPM</span><span id="CPM">0</span></p>
+            <p><span class="label">WPM</span><span id="WPM">0</span></p>
           </div>
-          <a class="btn btn-primary"
-             href="https://education.github.com/pack"
-             target="_blank"
-             rel="noopener noreferrer">
-            Learn More About the Student Pack
-          </a>
-        </div>
+        </form>
       </section>
-      -->
 
       <!-- Contact -->
       <section id="contact" class="contact-section">
         <h2 class="section-title">Get In Touch</h2>
-        <p>Feel free to reach out or check out my work on GitHub.</p>
+        <p>If you're interested in CS, AI, or neuroscience, feel free to connect or check out my work.</p>
         <a class="btn btn-primary"
            href="https://github.com/NicholasDenholm"
            target="_blank"

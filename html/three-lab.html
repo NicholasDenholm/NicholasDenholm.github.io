@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Three.js lab for testing new visual scripts and effects." />
+    <title>Nicholas Denholm | Three.js Lab</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/three-lab.css" />
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/vendor/three.min.js" defer></script>
+    <script src="../js/three-lab.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <span class="logo">Nicholas Denholm</span>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="three-lab.html">Three.js Lab</a>
+        <a href="soccer-ball.html">Soccer Ball</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">Dark</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="lab-main">
+      <section class="lab-intro">
+        <h1>Three.js Lab</h1>
+        <p>
+          Use this page to test new Three.js ideas without affecting the homepage. Edit
+          <code>js/three-lab.js</code> to prototype new scenes, objects, and animations.
+        </p>
+      </section>
+
+      <section class="lab-layout">
+        <div class="lab-card">
+          <h2 class="section-title">Live Scene</h2>
+          <div id="three-lab-canvas" class="three-lab-canvas"></div>
+          <p id="three-lab-status" class="lab-status" hidden></p>
+        </div>
+
+        <aside class="lab-card">
+          <h2 class="section-title">Quick Controls</h2>
+          <div class="lab-controls">
+            <label for="lab-rotation-speed">Rotation Speed</label>
+            <input id="lab-rotation-speed" type="range" min="0" max="0.1" step="0.005" value="0.02" />
+
+            <label for="lab-bob-speed">Bob Speed</label>
+            <input id="lab-bob-speed" type="range" min="0" max="4" step="0.1" value="1.2" />
+
+            <label for="lab-color">Object Color</label>
+            <input id="lab-color" type="color" value="#58a6ff" />
+
+            <label class="lab-checkbox">
+              <input id="lab-wireframe" type="checkbox" />
+              Wireframe
+            </label>
+
+            <button id="lab-reset" class="btn btn-secondary" type="button">Reset Demo</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

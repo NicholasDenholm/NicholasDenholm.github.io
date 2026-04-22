@@ -1,0 +1,86 @@
+.lab-main {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 2rem;
+}
+
+.lab-intro {
+  margin-bottom: 1.5rem;
+}
+
+.lab-intro h1 {
+  margin-bottom: 0.4rem;
+}
+
+.lab-intro p {
+  color: var(--text-secondary);
+  max-width: 760px;
+}
+
+.lab-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+}
+
+.lab-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.three-lab-canvas {
+  background: radial-gradient(circle at 20% 20%, var(--bg-tertiary), var(--bg-primary));
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  height: 60vh;
+  min-height: 360px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.three-lab-canvas canvas {
+  display: block;
+}
+
+.lab-status {
+  color: var(--text-secondary);
+  margin-top: 0.6rem;
+}
+
+.lab-controls {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.lab-controls label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.lab-controls input[type="range"] {
+  accent-color: var(--accent-primary);
+  width: 100%;
+}
+
+.lab-controls input[type="color"] {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  padding: 0;
+  width: 48px;
+}
+
+.lab-checkbox {
+  align-items: center;
+  display: flex;
+  gap: 0.45rem;
+}
+
+@media (max-width: 900px) {
+  .lab-layout {
+    grid-template-columns: 1fr;
+  }
+}

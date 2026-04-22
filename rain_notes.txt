@@ -1,0 +1,87 @@
+Rain + Three.js Notes (for learning)
+====================================
+
+What Three.js is doing in this project
+--------------------------------------
+The rain effect is a real-time 3D particle system rendered on a transparent canvas
+that sits behind your page content.
+
+Core Three.js pieces:
+1) Scene
+   - const scene = new THREE.Scene();
+   - Think of this as the 3D world container.
+
+2) Camera
+   - const camera = new THREE.PerspectiveCamera(...)
+   - Defines where you are looking from and how perspective works.
+
+3) Renderer
+   - const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+   - Draws the scene + camera to a canvas in the browser.
+   - "alpha: true" makes background transparent so HTML/CSS still shows.
+
+4) Geometry + Material + Points (the rain)
+   - Positions are stored in a Float32Array (x, y, z for each raindrop).
+   - BufferGeometry wraps those positions.
+   - PointsMaterial controls look (size, opacity, color).
+   - new THREE.Points(geometry, material) creates the visible raindrops.
+
+
+How the rain simulation works
+-----------------------------
+Each animation frame:
+1) Loop over every raindrop.
+2) Move it downward by baseFallSpeed[i] * settings.speed.
+3) Apply wind direction by adding settings.direction to x.
+4) Apply mouse deflection when a drop is inside deflectRadius:
+   - Compute distance from mouse point on a plane.
+   - Push drop away using settings.deflection strength.
+5) Apply damping to lateral movement (lateralX/lateralZ *= 0.93).
+6) If a drop falls below resetY, respawn it at the top with random x/z.
+7) Mark position buffer dirty:
+   - geometry.attributes.position.needsUpdate = true
+8) Render:
+   - renderer.render(scene, camera)
+9) Repeat with requestAnimationFrame(animate).
+
+
+How mouse deflection works
+--------------------------
+- Pointer position starts in 2D screen coords (clientX/clientY).
+- Converted to normalized device coordinates (-1..1).
+- Raycaster projects that into 3D.
+- The ray intersects a ground plane to get mouseWorld (a 3D point).
+- Rain drops near mouseWorld are repelled.
+
+
+Settings editor behavior
+------------------------
+Settings are saved in localStorage under:
+- nd-rain-settings
+
+Editable controls:
+- speed      (fall multiplier)
+- direction  (horizontal drift / wind)
+- deflection (how strongly mouse pushes drops)
+- color      (custom color; empty means follow theme accent)
+
+If custom color is empty, rain color tracks CSS --accent-blue.
+
+
+Useful Three.js concepts to study next
+--------------------------------------
+1) BufferGeometry attributes (position, color, size)
+2) Shaders (for advanced particles)
+3) Additive blending for glow/rain-at-night looks
+4) Frustum culling and performance tuning
+5) Post-processing (bloom, film grain)
+
+
+Good experiments to try in this file
+------------------------------------
+1) Change rainCount (visual density vs performance)
+2) Change deflectRadius (larger/smaller interaction zone)
+3) Add depth-based speed (far drops slower, near drops faster)
+4) Add slight z-direction wind
+5) Replace points with short line segments for streak-like rain
+

@@ -92,6 +92,7 @@ body {
   position: fixed;
   width: 100vw;
   z-index: 0;
+  color: var(--accent-blue);
 }
 
 header,
@@ -156,6 +157,177 @@ header nav a:hover {
   transform: scale(0.95);
 }
 
+.theme-editor-toggle,
+.rain-editor-toggle {
+  background-color: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  border-radius: 6px;
+  color: var(--button-secondary-text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  transition: all 0.2s ease;
+}
+
+.theme-editor-toggle:hover,
+.rain-editor-toggle:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.theme-editor,
+.rain-editor {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+  padding: 1rem;
+  position: fixed;
+  right: 1rem;
+  top: 5.25rem;
+  width: min(92vw, 340px);
+  z-index: 20;
+}
+
+.rain-editor {
+  left: 1rem;
+  right: auto;
+}
+
+.theme-editor-header,
+.rain-editor-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.theme-editor-header h2,
+.rain-editor-header h2 {
+  font-size: 1rem;
+}
+
+.theme-editor-help,
+.rain-editor-help {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.theme-editor-row {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.theme-editor-row label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.theme-editor-row select {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  flex: 1;
+  padding: 0.3rem 0.45rem;
+}
+
+.theme-editor-controls {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.theme-editor-control {
+  align-items: center;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  gap: 0.7rem;
+  justify-content: space-between;
+  padding: 0.45rem 0.55rem;
+}
+
+.theme-editor-control label {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.theme-editor-control input[type="color"] {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  width: 40px;
+}
+
+.theme-editor-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.theme-editor-actions .btn {
+  margin: 0;
+}
+
+.rain-editor-controls {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.rain-editor-control {
+  align-items: center;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: 4.6rem 1fr 3rem;
+  padding: 0.45rem 0.55rem;
+}
+
+.rain-editor-control label {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.rain-editor-control input[type="range"] {
+  accent-color: var(--accent-primary);
+  width: 100%;
+}
+
+.rain-editor-control input[type="color"] {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  justify-self: end;
+  padding: 0;
+  width: 40px;
+}
+
+.rain-editor-control span {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.rain-editor-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.rain-editor-actions .btn {
+  margin: 0;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -169,7 +341,7 @@ header nav a:hover {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+  background: linear-gradient(0deg, var(--accent-blue), var(--accent-purple));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,12 +352,12 @@ header nav a:hover {
 }
 
 .hero .avatar:hover {
-  transform: scale(1.05) rotate(5deg);
+  transform: scale(1.05) rotate(0deg);
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
   transition: color 0.2s ease;
 }
@@ -215,16 +387,24 @@ header nav a:hover {
   transition: all 0.2s ease;
 }
 
-.badge:hover {
+.badge.blue:hover {
+  opacity: 0.6;
   border-color: var(--accent-blue);
 }
 
+/*
 .badge.green {
-  color: var(--accent-green);
   border-color: var(--accent-green);
 }
+*/
+.badge.green:hover {
+  opacity: 0.6;
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
 
-.badge.purple {
+.badge.purple:hover {
+  opacity: 0.6;
   color: var(--accent-purple);
   border-color: var(--accent-purple);
 }
@@ -276,6 +456,7 @@ main {
 }
 
 .section-title {
+  text-align: center; 
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -487,5 +668,23 @@ footer a:hover {
     position: absolute;
     right: 1rem;
     top: 1rem;
+  }
+
+  .theme-editor-toggle {
+    margin-left: auto;
+  }
+
+  .rain-editor-toggle {
+    margin-left: auto;
+  }
+
+  .theme-editor {
+    right: 0.5rem;
+    top: 6.5rem;
+  }
+
+  .rain-editor {
+    left: 0.5rem;
+    top: 6.5rem;
   }
 }
