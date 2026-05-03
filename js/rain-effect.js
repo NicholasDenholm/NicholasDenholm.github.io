@@ -2,7 +2,7 @@
 (function () {
   const SETTINGS_KEY = 'nd-rain-settings';
   const DEFAULT_SETTINGS = {
-    speed: 0.1,
+    speed: 0.11,
     direction: 0.03,
     deflection: 0.5,
     color: ''
@@ -55,14 +55,14 @@
     if (typeof colorValue === 'string' && colorValue.toLowerCase().startsWith('rgb')) {
       return rgbToHex(colorValue);
     }
-    return '#7a9fb5';
+    return '#89b7de';
   }
 
   function loadSettings() {
     const saved = safeParse(localStorage.getItem(SETTINGS_KEY)) || {};
     // Adjust values here to change range of sliders
     return {
-      speed: clamp(Number(saved.speed) || DEFAULT_SETTINGS.speed, 0.001, 1),
+      speed: clamp(Number(saved.speed) || DEFAULT_SETTINGS.speed, 0.01, 1),
       direction: clamp(Number(saved.direction) || DEFAULT_SETTINGS.direction, -0.5, 0.5),
       deflection: clamp(Number(saved.deflection) || DEFAULT_SETTINGS.deflection, 0, 1),
       color: normalizeHexColor(saved.color) || ''
@@ -108,9 +108,12 @@
     return;
   }
 
+  // Container that holds everything
   const scene = new THREE.Scene();
+  // Perspective camera has args: (FOV, Apect ratio, Near clip, far clip)
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 500);
-  camera.position.set(0, 45, 120);
+  // placement of 3d camera: (x,y,z): (left/right, up/down, foward/back)
+  camera.position.set(10, 45, 120);
   // x,y,z angle for the viewer: initally 0,25,0
   camera.lookAt(0, 25, 0);
 
@@ -179,6 +182,18 @@
 
   const rain = new THREE.Points(geometry, material);
   scene.add(rain);
+
+  /* 
+  // Adding an arrow to visualize direction
+  const dir = new THREE.Vector3( 1, 2, 0 );
+  //normalize the direction vector (convert to vector of length 1)
+  dir.normalize();
+  const origin = new THREE.Vector3( 0, 0, 0 );
+  const length = 10;
+  const hex = 0xffff00;
+  const arrowHelper = new THREE.ArrowHelper( dir, origin, length, hex );
+  scene.add( arrowHelper );
+  */
 
   const mouseNdc = new THREE.Vector2(2, 2);
   const mouseWorld = new THREE.Vector3(9999, 0, 9999);

@@ -16,22 +16,26 @@
 
     <header>
       <span class="logo">Nicholas Denholm</span>
-      <nav>
+      <nav class="header nav">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
         <a href="three-lab.html">Three.js Lab</a>
         <a href="soccer-ball.html">Soccer Ball</a>
+      </nav>
+      <div class="theme-box">
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span id="theme-icon">Dark</span>
+          <span id="theme-icon">Theme</span>
         </button>
-        <button id="theme-editor-toggle" class="theme-editor-toggle" type="button" aria-label="Open color settings">
+        <button id="theme-editor-toggle" class="editor-toggle theme-editor-toggle" type="button" aria-label="Open color settings">
           Colors
         </button>
-        <button id="rain-editor-toggle" class="rain-editor-toggle" type="button" aria-label="Open rain settings">
+      </div>
+      <div class="rain-box">
+        <button id="rain-editor-toggle" class="editor-toggle rain-editor-toggle" type="button" aria-label="Open rain settings">
           Rain
         </button>
-      </nav>
+      </div>
     </header>
 
     <aside id="theme-editor" class="theme-editor" hidden>
@@ -94,7 +98,7 @@
         <span class="badge blue">Neuroscience</span>
         <span class="badge purple">Machine Learning</span>
       </div>
-      <div>
+      <div class="github-hero-button">
         <a class="btn btn-primary" href="https://github.com/NicholasDenholm" target="_blank" rel="noopener noreferrer">
           View GitHub Profile
         </a>
@@ -105,7 +109,7 @@
     <main>
 
       <!-- About -->
-      <section id="about" style="margin-bottom: 3rem;">
+      <section class= "group-1" id="about" style="margin-bottom: 3rem;">
         <h2 class="section-title">About Me</h2>
         <p style="max-width:700px; margin: 0 auto; text-align: center;">
           I'm a computer science student who enjoys building software and learning how
@@ -116,7 +120,7 @@
       </section>
 
       <!-- Projects -->
-      <section id="projects" style="margin-bottom: 3rem;">
+      <section class="group-2" id="projects" style="margin-bottom: 3rem;">
         <h2 class="section-title">Projects</h2>
         <div class="cards">
           <div class="card">
@@ -150,24 +154,24 @@
       </section>
 
       <!-- Skills -->
-      <section id="skills" style="margin-bottom: 3rem;">
+      <section class="group-3" id="skills" style="margin-bottom: 3rem;">
         <h2 class="section-title">Skills</h2>
         <div class="skills-list">
-          <span class="skill-chip">Python</span>
+          <span class="skill-chip badge green">Python</span>
           <span class="skill-chip">Java</span>
-          <span class="skill-chip">C</span>
+          <span class="skill-chip badge purple">C</span>
           <span class="skill-chip">HTML &amp; CSS</span>
-          <span class="skill-chip">Git &amp; GitHub</span>
-          <span class="skill-chip">Data Structures</span>
+          <span class="skill-chip badge green">Git &amp; GitHub</span>
+          <span class="skill-chip badge purple">Data Structures</span>
           <span class="skill-chip">Algorithms</span>
-          <span class="skill-chip">Linux / CLI</span>
+          <span class="skill-chip badge blue">Linux / CLI</span>
           <span class="skill-chip">Machine Learning</span>
           <span class="skill-chip">Neural Networks</span>
           <span class="skill-chip">Computational Biology</span>
         </div>
       </section>
       
-      <section id="typing-practice" style="margin-bottom: 3rem;">
+      <section class="group-4" id="typing-practice" style="margin-bottom: 3rem;">
         <h2 class="section-title">Typing Practice</h2>
         <form id="tipper">
           <label for="textariffic" class="label">Type here to measure your current speed</label>
@@ -180,10 +184,10 @@
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="contact-section">
+      <section class="contact-section group-5" id="contact" style="margin-bottom: 3rem;">
         <h2 class="section-title">Get In Touch</h2>
-        <p>If you're interested in CS, AI, or neuroscience, feel free to connect or check out my work.</p>
-        <a class="btn btn-primary"
+        <p class="contact-p">If you're interested in CS, AI, or neuroscience, feel free to connect or check out my work.</p>
+        <a class="btn btn-primary github-hero-button"
            href="https://github.com/NicholasDenholm"
            target="_blank"
            rel="noopener noreferrer">

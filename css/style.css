@@ -80,6 +80,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  min-width: 100vh;
   overflow-x: hidden;
   position: relative;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -90,12 +91,22 @@ body {
   inset: 0;
   pointer-events: none;
   position: fixed;
-  width: 100vw;
-  z-index: 0;
+  width: 120vw;
+  z-index: -100;
   color: var(--accent-blue);
 }
 
-header,
+
+main {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(16, 0.5fr);
+}
+
 .hero,
 main,
 footer {
@@ -104,10 +115,12 @@ footer {
 }
 
 header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 2rem;
-  display: flex;
+  padding: 1rem 2rem; 
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.2s ease, border-color 0.2s ease;
@@ -121,8 +134,10 @@ header .logo {
 }
 
 header nav {
+  grid-column: 3;
+  grid-template-rows: auto auto;
+  justify-self: end;
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
@@ -137,10 +152,27 @@ header nav a:hover {
   color: var(--text-primary);
 }
 
+.theme-box {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  gap: 1rem;
+  justify-self: end;
+}
+
+.rain-box {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  gap: 1rem;
+  justify-self: start;
+}
+/*----------- Toggle Buttons ------------- */
 .theme-toggle {
+  justify-self: end;
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
@@ -157,16 +189,31 @@ header nav a:hover {
   transform: scale(0.95);
 }
 
-.theme-editor-toggle,
-.rain-editor-toggle {
+.editor-toggle {
+  background: none;
   background-color: var(--button-secondary-bg);
   border: 1px solid var(--button-secondary-border);
   border-radius: 6px;
   color: var(--button-secondary-text);
   cursor: pointer;
-  font-size: 0.85rem;
+  
   padding: 0.4rem 0.7rem;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; 
+}
+
+.theme-editor-toggle {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: end;
+  font-size: 0.85rem;
+}
+
+.rain-editor-toggle { 
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  font-size: 0.95rem;
+  padding: 0.7rem 0.7rem;
 }
 
 .theme-editor-toggle:hover,
@@ -180,9 +227,10 @@ header nav a:hover {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  max-height: calc(100vh - 7rem);
+  max-height: calc(100vh - 10rem);
   overflow-y: auto;
   padding: 1rem;
+  margin-top: 3rem;
   position: fixed;
   right: 1rem;
   top: 5.25rem;
@@ -191,6 +239,11 @@ header nav a:hover {
 }
 
 .rain-editor {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  background: none;
+  margin-top: 3rem;
   left: 1rem;
   right: auto;
 }
@@ -328,12 +381,13 @@ header nav a:hover {
   margin: 0;
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* ---------------- Hero -----------------*/
+.hero { 
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5 ,0.5fr);
   text-align: center;
+  align-items: center;
   padding: 5rem 2rem 3rem;
 }
 
@@ -342,9 +396,10 @@ header nav a:hover {
   height: 120px;
   border-radius: 50%;
   background: linear-gradient(0deg, var(--accent-blue), var(--accent-purple));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: center;
+  text-align: center;
   font-size: 3rem;
   margin-bottom: 1.5rem;
   border: 3px solid var(--border-color);
@@ -356,6 +411,9 @@ header nav a:hover {
 }
 
 .hero h1 {
+  grid-column: 1/ span 5;
+  grid-row: 2;
+  align-items: center; 
   font-size: 2.5rem;
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
@@ -364,12 +422,18 @@ header nav a:hover {
 
 .hero .subtitle {
   font-size: 1.1rem;
+  grid-column: 1/ span 5;
+  grid-row: 3;
+  align-items: center; 
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   transition: color 0.2s ease;
 }
 
 .hero .badges {
+  grid-column: 1/ span 5;
+  grid-row: 4;
+  align-items: center; 
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
@@ -377,6 +441,14 @@ header nav a:hover {
   margin-bottom: 2rem;
 }
 
+.github-hero-button {
+  grid-column: 1/ span 5;
+  grid-row: 5;
+  align-items: center; 
+  border: 1px solid transparent;
+}
+
+/* --------------- Badges ------------------- */
 .badge {
   background-color: var(--bg-tertiary);
   border: 1px solid var(--border-color);
@@ -387,16 +459,23 @@ header nav a:hover {
   transition: all 0.2s ease;
 }
 
+.badge.blue {
+  color: var(--accent-blue);
+}
+
+.badge.green {
+  color: var(--accent-green);
+}
+
+.badge.purple {
+  color: var(--accent-purple);
+}
+
 .badge.blue:hover {
   opacity: 0.6;
   border-color: var(--accent-blue);
 }
 
-/*
-.badge.green {
-  border-color: var(--accent-green);
-}
-*/
 .badge.green:hover {
   opacity: 0.6;
   border-color: var(--accent-green);
@@ -409,8 +488,10 @@ header nav a:hover {
   border-color: var(--accent-purple);
 }
 
+
+/* --------------- Buttons ------------------- */
 .btn {
-  display: inline-block;
+  /*display: inline-block;*/
   padding: 0.6rem 1.4rem;
   border-radius: 6px;
   font-size: 0.95rem;
@@ -442,20 +523,15 @@ header nav a:hover {
   transform: translateY(-2px);
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
-/* About and section paragraphs */
+/* ----------------- About and  paragraphs ---------- */
 #about p,
-.contact-section p {
+.contact- p {
   color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
-.section-title {
+.-title {
   text-align: center; 
   font-size: 1.4rem;
   font-weight: 600;
@@ -467,13 +543,21 @@ main {
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   gap: 1rem;
   margin-bottom: 3rem;
 }
 
 .card {
+  min-width: 50px;
+  max-width: 250px;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 10px;
@@ -543,7 +627,7 @@ main {
   color: var(--accent-primary);
 }
 
-.sdp-section {
+.sdp- {
   background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
   opacity: 0.85;
   border: 1px solid var(--border-color);
@@ -554,17 +638,17 @@ main {
   transition: all 0.2s ease;
 }
 
-.sdp-section:hover {
+.sdp-:hover {
   opacity: 1;
 }
 
-.sdp-section h2 {
+.sdp- h2 {
   color: var(--text-primary);
   margin-bottom: 0.75rem;
   transition: color 0.2s ease;
 }
 
-.sdp-section p {
+.sdp- p {
   color: var(--text-secondary);
   margin-bottom: 1.25rem;
   max-width: 600px;
@@ -574,8 +658,6 @@ main {
 }
 
 .sdp-benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
   text-align: left;
@@ -614,13 +696,17 @@ main {
 }
 
 .contact-section {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
 }
 
-.contact-section p {
+.contact.a {
+  padding-top: 1rem;
+}
+
+.contact-p {
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   transition: color 0.2s ease;
 }
 
@@ -642,6 +728,35 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+
+.group-1 {
+  grid-column: 6 / 11;
+  grid-row: 1 / span 2;
+}
+
+.group-2 {
+  align-items: center;
+  padding-left: 5px;
+  grid-column: 5 / span 7;
+  grid-row: 3 / span 5;
+}
+
+.group-3 {
+  padding-top: 1rem;
+  grid-column: 6 / span 6;
+  grid-row: 7 / span 2;
+}
+
+.group-4 {
+  grid-column: 5 / span 7;
+  grid-row: 9 / span 4;
+}
+
+.group-5 {
+  grid-column: 6 / span 6;
+  grid-row: 13 / span 1;
 }
 
 @media (max-width: 600px) {
